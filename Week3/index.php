@@ -12,6 +12,29 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
+        
+        //$_POST - only works for HTML forms - Looks at "name" of input field.
+        //echo $_POST["fullname"], "<br />", $_POST["email"],"<br />", $_POST["comments"], "<br />";
+        
+        //print_r is used for debugging
+       print_r($_POST);
+       
+       $fullname = "";
+       $email = "";
+       $comments = "";
+       
+       if (count($_POST)) {
+           
+           if (array_key_exists($fullname, $_POST)){
+               $fullname = $_POST["fullname"];
+           }
+           if (array_key_exists($email, $_POST)){
+               $email = $_POST["email"];
+           }
+           if (array_key_exists($comments, $_POST)){
+               $comments = $_POST["comments"];
+           }           
+       }
         ?>
         
         
@@ -19,7 +42,8 @@ and open the template in the editor.
         <form name="mainform" action="index.php" method="post">
             
             Full Name: <input name="fullname" value="" /><br />
-            <input type="text" name="fullname" value="" /><br />
+            Email: <input name="email" value="" /><br />
+            Comments: <textarea cols="10" rows="5" name="comments"> </textarea><br />
             <input type="submit" name="submit" />
             
     </body>
