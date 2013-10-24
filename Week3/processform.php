@@ -12,7 +12,9 @@ and open the template in the editor.
     <body>
         <?php
        
-        
+       $fullname = "";
+       $email = "";
+       $comments = "";        
         
        if (count($_POST)) {
            
@@ -25,6 +27,26 @@ and open the template in the editor.
            if (array_key_exists($comments, $_POST)){
                $comments = $_POST["comments"];
            }           
+       }
+       
+       if (!empty($fullname) && !empty($email) && !empty($comments)){
+          
+          $dbh = new PDO("mysql:host=localhost;port=3306;dbname=phplab","root",""); 
+       
+       try {
+          $stat = $dbh->prepare('insert into week3 set fullname = :fullnameValue, ' 
+                  . 'email = :emailValue, comments = :commentsValue');
+          
+          $stat->bindParam(":fullnameValue", $fullname, PDO::PARAM_STR);
+          $stat->bindParam(":emailnameValue", $email, PDO::PARAM_STR);
+          $stat->bindParam(":commentsValue", $comments, PDO::PARAM_STR);
+          $stat->execute();
+          
+          echo "<h3>Info Submited</h3><p><a href='index.php'>Back to form</a></p>" ;        
+         } catch (PDOException $e) {
+              echo "Database Error";
+         }
+       
        }
        
         ?>
