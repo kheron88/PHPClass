@@ -10,11 +10,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>   
-        <form name="mainform" action="index.php" method="post">
+        <form name="mainform" action="processform.php" method="post">
             
-            Full Name: <input type="text" name="fullname" value="<?php echo $fullname; ?>" /> <br />
-            Email: <input type="text" name="email" value="<?php echo $email; ?>" /> <br />
-            Comments: <textarea cols="20" rows="5" name="comments" ><?php echo $comments; ?></textarea><br />
+            Full Name: <input type="text" name="fullname" value="" /> <br />
+            Email: <input type="text" name="email" value="" /> <br />
+            Comments: <textarea cols="20" rows="5" name="comments" ></textarea><br />
             <input type="submit" name="submit" />
         </form>
         
