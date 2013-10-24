@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>   
-        <form name="mainform" action="processform.php" method="post">
+        <form name="mainform" action="index.php" method="post">
             
             Full Name: <input type="text" name="fullname" value="<?php echo $fullname; ?>" /> <br />
             Email: <input type="text" name="email" value="<?php echo $email; ?>" /> <br />
