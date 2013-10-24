@@ -28,6 +28,7 @@ and open the template in the editor.
                $comments = $_POST["comments"];
            }           
        }
+      
        
        if (!empty($fullname) && !empty($email) && !empty($comments)){
           
@@ -35,7 +36,7 @@ and open the template in the editor.
        
        try {
           $stat = $dbh->prepare('insert into week3 set fullname = :fullnameValue, ' 
-                  . 'email = :emailValue, comments = :commentsValue');
+                  .' email = :emailValue, comments = :commentsValue');
           
           $stat->bindParam(":fullnameValue", $fullname, PDO::PARAM_STR);
           $stat->bindParam(":emailnameValue", $email, PDO::PARAM_STR);
