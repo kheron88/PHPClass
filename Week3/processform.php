@@ -47,7 +47,11 @@ and open the template in the editor.
               echo "Database Error";
          }
        
-       }
+       } else{
+            
+           echo "<h3>Info NOT Submited</h3><p><a href='index.php'>Back to form</a></p>" ;
+     
+            }
        
         ?>
     </body>
