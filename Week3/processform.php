@@ -18,13 +18,13 @@ and open the template in the editor.
         
        if (count($_POST)) {
            
-           if (array_key_exists($fullname, $_POST)){
+           if (array_key_exists("fullname", $_POST)){
                $fullname = $_POST["fullname"];
            }
-           if (array_key_exists($email, $_POST)){
+           if (array_key_exists("email", $_POST)){
                $email = $_POST["email"];
            }
-           if (array_key_exists($comments, $_POST)){
+           if (array_key_exists("comments", $_POST)){
                $comments = $_POST["comments"];
            }           
        }
@@ -39,9 +39,10 @@ and open the template in the editor.
                   .' email = :emailValue, comments = :commentsValue');
           
           $stat->bindParam(":fullnameValue", $fullname, PDO::PARAM_STR);
-          $stat->bindParam(":emailnameValue", $email, PDO::PARAM_STR);
+          $stat->bindParam(":emailValue", $email, PDO::PARAM_STR);
           $stat->bindParam(":commentsValue", $comments, PDO::PARAM_STR);
           $stat->execute();
+         
           
           echo "<h3>Info Submited</h3><p><a href='index.php'>Back to form</a></p>" ;        
          } catch (PDOException $e) {
@@ -53,7 +54,6 @@ and open the template in the editor.
            echo "<h3>Info NOT Submited</h3><p><a href='index.php'>Back to form</a></p>" ;
      
             }
-       
         ?>
     </body>
 </html>

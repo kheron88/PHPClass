@@ -9,7 +9,27 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>   
+    <body> 
+        <?php
+        $dbh = new PDO("mysql:host=localhost;port=3306;dbname=phplab","root","");
+        $stat = $dbh->prepare('SELECT * FROM week3');
+        $stat->execute();
+        
+        $result = $stat->fetchAll();
+          
+          if (count($result)) {
+              foreach($result as $row){
+                  print_r($row);
+                  echo "<br /";
+              }
+          } else {
+              echo "No rows returned.";
+          }
+          
+        
+        ?>
+        
+        
         <form name="mainform" action="processform.php" method="post">
             
             Full Name: <input type="text" name="fullname" value="" /> <br />
